@@ -1,0 +1,28 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="Theme.AndroidAppGuzcar" parent="Theme.Material3.Dark.NoActionBar">
+
+        <!-- Color Scheme -->
+        <!-- <item name="colorPrimary">@color/primary</item> -->
+        <item name="colorPrimary">@color/primaryContainer</item>
+        <item name="colorOnPrimary">@color/onPrimary</item>
+        <item name="colorPrimaryContainer">@color/primaryContainer</item>
+        <item name="colorOnPrimaryContainer">@color/onPrimaryContainer</item>
+
+        <item name="colorSecondary">@color/secondary</item>
+        <item name="colorOnSecondary">@color/onSecondary</item>
+        <item name="colorSecondaryContainer">@color/secondaryContainer</item>
+        <item name="colorOnSecondaryContainer">@color/onSecondaryContainer</item>
+
+        <item name="android:statusBarColor">@color/primaryContainer</item>
+        <item name="android:windowLightStatusBar">false</item>
+
+        <!--
+        <item name="android:navigationBarColor">@color/primaryContainer</item>
+        -->
+
+        <item name="android:colorBackground">@color/background</item>
+
+    </style>
+
+</resources>

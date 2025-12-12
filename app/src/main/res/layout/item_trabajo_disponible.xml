@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="12dp"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="2dp">
+
+    <LinearLayout
+        android:padding="12dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Placa -->
+        <TextView
+            android:id="@+id/txtPlacaDisp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ABC-123"
+            android:textStyle="bold"
+            android:textSize="18sp" />
+
+        <!-- Detalle vehículo -->
+        <TextView
+            android:id="@+id/txtDetalleVehiculoDisp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sedán · Toyota · Corolla · Rojo"
+            android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
+            android:layout_marginTop="4dp" />
+
+        <!-- Descripción servicio -->
+        <TextView
+            android:id="@+id/txtDescripcionDisp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mantenimiento general"
+            android:layout_marginTop="6dp"
+            android:textColor="@color/secondary"
+            android:textAppearance="@style/TextAppearance.Material3.BodyMedium" />
+
+        <!-- Botón ASIGNAR -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="end"
+            android:layout_marginTop="8dp">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnAsignar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:text="Asignar" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>
