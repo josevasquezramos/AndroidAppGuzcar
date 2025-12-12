@@ -236,19 +236,26 @@ class EvidenciasActivity : AppCompatActivity() {
     // ---------------- EDITAR INDIVIDUAL ---------------- //
 
     private fun mostrarDialogoEditar(id: Int, observacionActual: String?) {
-        val editText = com.google.android.material.textfield.TextInputEditText(this).apply {
-            setText(observacionActual ?: "")
-        }
+        val dialogView = layoutInflater.inflate(R.layout.dialog_observacion, null)
+        val observacionEdit = dialogView.findViewById<TextInputEditText>(R.id.observacionEdit)
 
-        MaterialAlertDialogBuilder(this)
+        observacionEdit.setText(observacionActual ?: "")
+
+        val dialog = MaterialAlertDialogBuilder(this)
             .setTitle("Editar observación")
-            .setView(editText)
+            .setView(dialogView)
             .setPositiveButton("Guardar") { _, _ ->
-                val nuevaObs = editText.text?.toString()
+                val nuevaObs = observacionEdit.text?.toString()?.trim()
                 actualizarObservacion(id, nuevaObs)
             }
             .setNegativeButton("Cancelar", null)
-            .show()
+            .create()
+
+        // 👇 Esto evita que se cierre al tocar fuera
+        dialog.setCancelable(false)
+        dialog.setCanceledOnTouchOutside(false)
+
+        dialog.show()
     }
 
     private fun actualizarObservacion(id: Int, nuevaObs: String?) {
@@ -330,20 +337,24 @@ class EvidenciasActivity : AppCompatActivity() {
     // ---------------- BULK UPDATE ---------------- //
 
     private fun mostrarDialogoBulkEditar(ids: List<Int>) {
-        val editText = com.google.android.material.textfield.TextInputEditText(this).apply {
-            hint = "Nueva observación"
-        }
+        val dialogView = layoutInflater.inflate(R.layout.dialog_observacion, null)
+        val observacionEdit = dialogView.findViewById<TextInputEditText>(R.id.observacionEdit)
 
-        MaterialAlertDialogBuilder(this)
+        val dialog = MaterialAlertDialogBuilder(this)
             .setTitle("Editar observación")
             .setMessage("Se aplicará la misma observación a ${ids.size} evidencias.")
-            .setView(editText)
+            .setView(dialogView)
             .setPositiveButton("Guardar") { _, _ ->
-                val nuevaObs = editText.text?.toString()
+                val nuevaObs = observacionEdit.text?.toString()?.trim()
                 bulkUpdateObservacion(ids, nuevaObs)
             }
             .setNegativeButton("Cancelar", null)
-            .show()
+            .create()
+
+        dialog.setCancelable(false)
+        dialog.setCanceledOnTouchOutside(false)
+
+        dialog.show()
     }
 
     private fun bulkUpdateObservacion(ids: List<Int>, nuevaObs: String?) {
@@ -450,7 +461,6 @@ class EvidenciasActivity : AppCompatActivity() {
             .setNegativeButton("Cancelar", null)
             .create()
 
-        // 👇 Esto evita que se cierre al tocar fuera
         dialog.setCancelable(false)
         dialog.setCanceledOnTouchOutside(false)
 

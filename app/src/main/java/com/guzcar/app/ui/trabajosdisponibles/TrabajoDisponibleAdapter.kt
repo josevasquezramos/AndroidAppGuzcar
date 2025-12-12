@@ -25,7 +25,7 @@ class TrabajoDisponibleAdapter(
         fun bind(item: TrabajoAsignadoDto) {
             val v = item.vehiculo
             val detalle = listOfNotNull(v.tipo, v.marca, v.modelo, v.color)
-                .joinToString(" · ")
+                .joinToString(" ")
 
             binding.txtPlacaDisp.text = v.placa ?: "SIN PLACA"
             binding.txtDetalleVehiculoDisp.text =

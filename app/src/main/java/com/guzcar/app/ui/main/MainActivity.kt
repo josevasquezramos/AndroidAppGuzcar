@@ -155,7 +155,7 @@ class MainActivity : AppCompatActivity() {
                                 trabajo.vehiculo.modelo
                             )
                             if (extras.isNotEmpty()) {
-                                append(" · ")
+                                append(" ")
                                 append(extras.joinToString(" "))
                             }
                         }
